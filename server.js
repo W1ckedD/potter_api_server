@@ -1,6 +1,14 @@
 const express = require('express');
+const dotenv = require('dotenv');
+dotenv.config({ path: './config/config.env' });
+const connectDB = require('./config/connectDB');
+connectDB();
+const morgan = require('morgan');
 
 const app = express();
+
+// Middlewares
+app.use(morgan('dev'));
 
 app.get('/', (req, res) => res.json({ app: 'Express' }));
 
