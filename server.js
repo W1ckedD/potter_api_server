@@ -10,6 +10,7 @@ const app = express();
 // Middlewares
 app.use(morgan('dev'));
 
+app.get('/api', (req, res) => res.json({ devServer: 'Express', path: '/' }));
 app.get('/', (req, res) => res.json({ app: 'Express' }));
 
 
